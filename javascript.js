@@ -14,6 +14,19 @@ function createDivs(divContainer) {
 }
 
 divContainer = document.createElement("div");
-main = document.querySelector("#main")
+divContainer.id = "grid"
+main = document.querySelector("#main");
 main.appendChild(divContainer);
 createDivs(divContainer);
+
+function hover(divContainer){
+    const grid = document.querySelectorAll(".column");
+    console.log(grid);
+    grid.forEach((div) => {
+        div.addEventListener("mouseover", (event) => {
+            div.style.backgroundColor = "gray";
+        });
+    });
+}
+
+hover(divContainer);
