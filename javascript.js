@@ -36,7 +36,7 @@ function adjustGrid(size) {
     if (size == null) {
         return;
     }
-    else if (typeof(size) == "string") {
+    else if (isNaN(size)) {
         alert("Oops! The grid size must be numerical.")
     }
     else if (size > 100 || size < 1) {
