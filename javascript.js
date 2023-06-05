@@ -25,10 +25,9 @@ function resetGrid() {
 }
 function hover() {
     const grid = document.querySelectorAll(".column");
-    console.log(grid);
     grid.forEach((div) => {
         div.addEventListener("mouseover", (event) => {
-            div.style.backgroundColor = "gray";
+            div.style.backgroundColor = "#cce9fc";
         });
     });
 }
@@ -49,16 +48,30 @@ function adjustGrid(size) {
         hover();
     }
 }
+function clearGrid() {
+    console.log("Clear");
+    const grid = document.querySelectorAll(".column");
+    grid.forEach((div) => {
+        div.style.backgroundColor = "white";
+    });
+}
 divContainer = document.createElement("div");
 divContainer.id = "grid"
 main = document.querySelector("#main");
 var button = document.createElement("button");
 button.innerHTML = "Change grid size";
+var buttonClear = document.createElement("button");
+buttonClear.innerHTML = "Clear grid";
 main.appendChild(divContainer);
 divContainer.append(button);
+divContainer.append(buttonClear);
 createDivs(divContainer, 16);
 button.onclick = function () {
     size = window.prompt("What grid size do you want?", "");
     adjustGrid(size);
+}
+buttonClear.onclick = function() {
+    console.log("HI")
+    clearGrid();
 }
 hover();
